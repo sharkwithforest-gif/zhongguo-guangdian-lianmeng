@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国广电演出产业联盟（筹）组建方案</title>
+<style>
+  :root {
+    --bg: #0b0f1a;
+    --bg-alt: #161e2d;
+    --bg-card: #111827;
+    --border: #1f2937;
+    --border-light: #2a3345;
+    --gold: #c9a051;
+    --gold-light: #d4b36a;
+    --gold-dark: #a07830;
+    --white: #ffffff;
+    --text: #e5e7eb;
+    --text-dim: #b0ada8;
+    --text-muted: #787570;
+    --radius: 14px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text-dim);
+    line-height: 1.9;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ================================================================
+     HERO
+     ================================================================ */
+  .hero {
+    background: radial-gradient(ellipse at 50% 30%, #1a2540 0%, #0b0f1a 70%);
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 20%, rgba(201,160,81,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    border: 1.5px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 22px;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    background: rgba(201,160,81,0.06);
+  }
+  .hero-badge .dim { color: var(--gold); font-weight: 900; }
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 4px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .slogan {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 18px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 4px;
+  }
+  .hero .slogan .w { color: var(--white); }
+  .hero .slogan .dot { color: var(--text-muted); font-weight: 400; margin: 0 6px; }
+  .hero .subtitle {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-top: 20px;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero .subtitle .hl { color: var(--gold); font-weight: 700; }
+
+  /* Hero CTA 按钮 */
+  .hero-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #0b0f1a;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 14px 36px;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    margin-top: 28px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 30px rgba(201,160,81,0.2);
+  }
+
+  /* ================================================================
+     SECTION 通用
+     ================================================================ */
+  .sec {
+    padding: 40px 22px;
+    border-top: 1px solid var(--border);
+  }
+  .sec-alt { background: var(--bg-alt); }
+
+  /* 章节标题 */
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .sec-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 3px;
+    white-space: nowrap;
+  }
+  .sec-title {
+    font-size: 23px;
+    font-weight: 900;
+    color: var(--white);
+  }
+
+  /* 概念提炼 */
+  .concept {
+    background: rgba(201,160,81,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin: 14px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.7;
+  }
+
+  /* 正文 */
+  .body-text {
+    text-indent: 2em;
+    margin: 10px 0;
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.9;
+  }
+  .body-text .kw { color: var(--gold); font-weight: 700; }
+  .body-text .b { font-weight: 700; }
+
+  /* 高亮句子 → 金色独立段落 */
+  .highlight-sentence {
+    background: rgba(201,160,81,0.06);
+    border-left: 3px solid var(--gold);
+    padding: 12px 18px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1.8;
+    text-indent: 0;
+  }
+
+  /* 子标题 */
+  .sub-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin: 22px 0 10px;
+    padding-left: 14px;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ================================================================
+     图片网格
+     ================================================================ */
+  .img-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .img-grid img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+  }
+
+  /* ================================================================
+     四大宗旨卡片
+     ================================================================ */
+  .cards-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .card-4 {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .card-4 .icon { font-size: 26px; margin-bottom: 8px; }
+  .card-4 .title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .card-4 .desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ================================================================
+     组织架构图
+     ================================================================ */
+  .org-chart { margin: 16px 0; }
+  .org-top {
+    background: linear-gradient(135deg, rgba(201,160,81,0.12), rgba(201,160,81,0.04));
+    border: 1px solid var(--gold);
+    border-radius: var(--radius);
+    text-align: center;
+    padding: 16px 18px;
+    color: var(--white);
+    font-weight: 800;
+    font-size: 16px;
+  }
+  .org-top .sub {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+  .org-arrow {
+    text-align: center;
+    color: var(--gold);
+    margin: 8px 0;
+    font-size: 18px;
+  }
+  .org-branches {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+  .org-branch {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 10px;
+    text-align: center;
+  }
+  .org-branch .br-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+  .org-branch .br-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ================================================================
+     五大机制列表
+     ================================================================ */
+  .mech-list { list-style: none; margin: 16px 0; }
+  .mech-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 16px;
+    margin: 8px 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--gold);
+  }
+  .mech-num {
+    background: var(--gold);
+    color: #0b0f1a;
+    border-radius: 50%;
+    width: 30px; height: 30px;
+    min-width: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 13px;
+  }
+  .mech-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--white);
+  }
+  .mech-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* ================================================================
+     资金池流程图
+     ================================================================ */
+  .fund-flow {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 20px 18px;
+    margin: 18px 0;
+  }
+  .fund-flow .flow-title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+  }
+  .flow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .flow-box {
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    color: var(--text);
+    padding: 10px 16px;
+    border-radius: 22px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .flow-box.gold {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .flow-box.green {
+    border-color: #4ade80;
+    color: #4ade80;
+  }
+  .flow-arrow {
+    color: var(--gold);
+    font-weight: 900;
+    font-size: 16px;
+  }
+  .flow-loop {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  /* ================================================================
+     数字高亮条
+     ================================================================ */
+  .stat-highlight {
+    background: linear-gradient(135deg, rgba(201,160,81,0.1), rgba(201,160,81,0.03));
+    border: 1px solid rgba(201,160,81,0.25);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .stat-highlight .big-num {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-highlight .big-desc {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.6;
+  }
+  .stat-highlight .big-desc small {
+    display: block;
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  /* ================================================================
+     三大业务卡片
+     ================================================================ */
+  .biz-list { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+  .biz-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .biz-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 70px; height: 70px;
+    border-radius: 0 0 0 70px;
+    opacity: 0.05;
+  }
+  .biz-card:nth-child(1)::after { background: var(--gold); }
+  .biz-card:nth-child(2)::after { background: #a78bfa; }
+  .biz-card:nth-child(3)::after { background: #4ade80; }
+  .biz-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    border: 1px solid;
+  }
+  .biz-card:nth-child(1) .biz-tag { color: var(--gold); border-color: rgba(201,160,81,0.3); background: rgba(201,160,81,0.08); }
+  .biz-card:nth-child(2) .biz-tag { color: #a78bfa; border-color: rgba(167,139,250,0.3); background: rgba(167,139,250,0.08); }
+  .biz-card:nth-child(3) .biz-tag { color: #4ade80; border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.08); }
+  .biz-card .biz-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .biz-card .body-text { font-size: 14px; }
+
+  /* ================================================================
+     核心价值卡片
+     ================================================================ */
+  .value-list { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+  .value-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+  }
+  .value-card .v-icon { font-size: 28px; margin-bottom: 6px; }
+  .value-card h4 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+  .value-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .value-card ul li {
+    padding: 5px 0 5px 20px;
+    position: relative;
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .value-card ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .value-card ul li strong { color: var(--white); }
+
+  /* ================================================================
+     时间轴
+     ================================================================ */
+  .timeline { margin: 16px 0; position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark), #e05561);
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -26px; top: 18px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 3px solid var(--gold);
+  }
+  .tl-item:nth-child(2)::before { border-color: var(--gold-light); }
+  .tl-item:nth-child(3)::before { border-color: #e05561; }
+  .tl-item .phase {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 3px;
+  }
+  .tl-item:nth-child(2) .phase { color: var(--gold-light); }
+  .tl-item:nth-child(3) .phase { color: #e05561; }
+  .tl-item .phase-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--white);
+    margin: 4px 0 8px;
+  }
+  .tl-item .phase-body {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  /* ================================================================
+     结语区 + CTA
+     ================================================================ */
+  .closing-section {
+    background: radial-gradient(ellipse at 50% 80%, #1a2540 0%, #0b0f1a 60%);
+    padding: 40px 22px 48px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .closing-section .body-text {
+    text-align: left;
+    color: var(--text-dim);
+  }
+  .closing-section .closing-tag {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #0b0f1a;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 14px 36px;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    margin-top: 28px;
+    box-shadow: 0 0 30px rgba(201,160,81,0.2);
+  }
+
+  /* ================================================================
+     落款
+     ================================================================ */
+  .footer {
+    text-align: right;
+    padding: 20px 22px 30px;
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  /* ================================================================
+     移动适配
+     ================================================================ */
+  @media (max-width: 400px) {
+    .hero h1 { font-size: 22px; letter-spacing: 1px; }
+    .hero .slogan { font-size: 15px; letter-spacing: 2px; }
+    .hero h1 { font-size: 30px; letter-spacing: 2px; }
+    .cards-4 { grid-template-columns: 1fr 1fr; }
+    .org-branches { grid-template-columns: 1fr; }
+    .sec-title { font-size: 20px; }
+    .sec { padding: 32px 16px; }
+  }
+  @media (min-width: 500px) {
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
+    .value-list { flex-direction: row; }
+    .value-card { flex: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ==================================================================
+     HERO
+     ================================================================== -->
+<div class="hero">
+  <div class="hero-badge"><span class="dim">央视娱乐传媒</span> · 牵头发起</div>
+  <h1>中国广电演出产业联盟<br>组建方案</h1>
+  <div class="slogan">
+    <span class="w">聚广电之力</span>
+    <span class="dot">·</span>
+    <span class="w">筑演出之基</span>
+    <span class="dot">·</span>
+    <span class="w">树行业之范</span>
+  </div>
+  <div class="subtitle">
+    联合全国省级广电机构，聚势合力、资源共享、协同发展，<br>共同打造线下演出领域的<span class="hl">"国家队"</span>。
+  </div>
+  <div class="hero-cta">诚邀共建 · 共赴此行</div>
+</div>
+
+<!-- ==================================================================
+     PART 01  背景与发起缘由
+     ================================================================== -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">PART 01</span>
+    <span class="sec-title">背景与发起缘由</span>
+  </div>
+
+  <div class="concept">行业正从野蛮生长加速转向规范发展，广电系统从"影响受众"向"服务用户"转型，联盟将成为线下演出领域的"国家队"。</div>
+
+  <p class="body-text">当前，中国线下演出市场正处于<span class="kw">规模扩容与深度洗牌并行的关键阶段</span>。一方面，音乐节、演唱会等大型演出已成为拉动文旅消费、承载青年文化的核心场景，市场需求持续释放；另一方面，行业粗放扩张的矛盾集中显现：艺人成本与票房收益失衡、内容同质化严重、项目履约率波动、运营标准参差不齐，<span class="kw">市场正从野蛮生长加速转向规范发展，亟需具备公信力与专业能力的主体引领行业秩序。</span></p>
+
+  <p class="body-text">与此同时，<span class="kw">全国广电系统正处于媒体深度融合与产业转型的攻坚期。</span>传统广告营收模式持续承压，向线下场景延伸、向To C服务拓展、构建多元营收结构，已成为全行业共同战略方向。<span class="kw">线下演出作为高情感浓度、高用户粘性的线下入口，是广电系统从"影响受众"向"服务用户"转型的核心抓手，</span>但单一机构普遍存在线下运营经验不足、资源分散、议价能力弱等瓶颈，独立拓展试错成本高、规模效应弱。</p>
+
+  <p class="body-text">从行业实践看，作为中央广播电视总台央视频重要生态成员，<span class="kw">央视娱乐传媒</span>近年来先行先试、深度切入线下演出赛道，通过<span class="kw">"N次方""T次方"</span>两大音乐节厂牌的成功落地，<span class="kw">充分验证了广电媒体从内容传播向场景运营延伸的可行性。</span>实践证明，依托国家级媒体的品牌公信力、全域传播能力与跨界资源整合优势，辅以专业化、市场化的运营机制，广电系主体完全具备打造高品质、可持续演出IP的能力。</p>
+
+  <!-- 四张图片 -->
+  <div class="img-grid">
+    <img src="image1.jpeg" alt="项目现场1" loading="lazy">
+    <img src="image2.jpeg" alt="项目现场2" loading="lazy">
+    <img src="image3.jpeg" alt="项目现场3" loading="lazy">
+    <img src="image4.jpeg" alt="项目现场4" loading="lazy">
+  </div>
+
+  <p class="body-text">历经十余年深耕，央视娱乐已构建起覆盖艺人储备、商务合作、全流程执行的成熟运营体系，具备牵头搭建产业协同平台的扎实基础。基于演出行业规范发展的刚需与广电系统转型变革的共识，央视娱乐传媒拟牵头发起成立<span class="kw">"中国广电演出产业联盟"</span>，联合全国省级广电机构<span class="kw">聚势合力、资源共享、协同发展</span>，共同打造线下演出领域的<span class="b">"国家队"</span>，以产业协同激活市场活力，以规范标准引领行业升级。</p>
+</div>
+
+<!-- ==================================================================
+     PART 02  联盟定位与宗旨
+     ================================================================== -->
+<div class="sec sec-alt">
+  <div class="sec-head">
+    <span class="sec-num">PART 02</span>
+    <span class="sec-title">联盟定位与宗旨</span>
+  </div>
+
+  <div class="concept">资本为纽带 · 资源为基础 · 标准为引领 — 打通线下演出全链路，构建广电系产业生态</div>
+
+  <div class="sub-title">（一）联盟定位</div>
+  <p class="body-text">联盟由<span class="kw">央视娱乐传媒牵头</span>，全国各级广电系统自愿加入，联合中国演出行业协会、产业链核心伙伴共同组建的产业协同共同体。联盟以<span class="kw">资本为纽带、资源为基础、标准为引领</span>，打通线下演出全链路运营环节，构建广电系线下演出产业生态，树立行业合规发展标杆，推动广电产业转型与演出行业升级双向赋能。</p>
+
+  <div class="sub-title">（二）核心宗旨</div>
+  <p class="body-text">联盟以<span class="kw">"内容共创、价值共享、利益共赢"</span>为核心理念，践行四大宗旨：</p>
+
+  <div class="cards-4">
+    <div class="card-4">
+      <div class="icon">🔗</div>
+      <div class="title">资源聚合</div>
+      <div class="desc">打通资金、艺人、品牌、传播、渠道等核心生产要素，构建制播联动、资源互补的产业共同体</div>
+    </div>
+    <div class="card-4">
+      <div class="icon">📉</div>
+      <div class="title">降本提效</div>
+      <div class="desc">规模化集采、集约化运营、标准化执行，系统性压降项目成本，提升落地效率</div>
+    </div>
+    <div class="card-4">
+      <div class="icon">🏅</div>
+      <div class="title">标准引领</div>
+      <div class="desc">建立规范化运营体系与品质管控标准，纠治行业不良竞争，推动行业良性健康发展</div>
+    </div>
+    <div class="card-4">
+      <div class="icon">🌐</div>
+      <div class="title">生态共建</div>
+      <div class="desc">赋能广电系统产业转型，构建"内容+场景+服务"全媒体产业生态，打造线下演出正规军</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================================================================
+     PART 03  联盟组织架构
+     ================================================================== -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">PART 03</span>
+    <span class="sec-title">联盟组织架构</span>
+  </div>
+
+  <div class="sub-title">（一）发起单位</div>
+  <p class="body-text"><span class="kw">央视娱乐传媒</span>为联盟发起及牵头单位，承担联盟筹备统筹、日常运营管理、项目总协调、标准体系制定等核心职责。</p>
+
+  <div class="org-chart">
+    <div class="org-top">
+      央视娱乐传媒
+      <div class="sub">发起及牵头单位 · 筹备统筹 · 运营管理 · 标准制定</div>
+    </div>
+    <div class="org-arrow">▼</div>
+    <div class="org-branches">
+      <div class="org-branch">
+        <div class="br-title">核心成员单位</div>
+        <div class="br-desc">各省级广电机构<br>首批拟邀5家<br>核心出资方与业务共建主体</div>
+      </div>
+      <div class="org-branch">
+        <div class="br-title">行业指导单位</div>
+        <div class="br-desc">中国演出行业协会<br>政策解读 · 行业规范<br>资源对接</div>
+      </div>
+      <div class="org-branch">
+        <div class="br-title">生态合作伙伴</div>
+        <div class="br-desc">头部票务平台<br>场地运营方<br>专业制作机构</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================================================================
+     PART 04  核心运行机制
+     ================================================================== -->
+<div class="sec sec-alt">
+  <div class="sec-head">
+    <span class="sec-num">PART 04</span>
+    <span class="sec-title">核心运行机制</span>
+  </div>
+
+  <!-- 五大机制速览 -->
+  <ul class="mech-list">
+    <li>
+      <div class="mech-num">1</div>
+      <div>
+        <div class="mech-title">联合资金池机制</div>
+        <div class="mech-desc">首期3亿元，5家各6000万，第三方监管，同股同权</div>
+      </div>
+    </li>
+    <li>
+      <div class="mech-num">2</div>
+      <div>
+        <div class="mech-title">艺人资源共享机制</div>
+        <div class="mech-desc">统一艺人资源库，联合议价，优先调用，长效维护</div>
+      </div>
+    </li>
+    <li>
+      <div class="mech-num">3</div>
+      <div>
+        <div class="mech-title">品牌商务协同机制</div>
+        <div class="mech-desc">资源跨域复用，规模联合招商，IP共创增值</div>
+      </div>
+    </li>
+    <li>
+      <div class="mech-num">4</div>
+      <div>
+        <div class="mech-title">内容创制与全域传播机制</div>
+        <div class="mech-desc">全链路内容共创，跨区域全域传播，多省广电平台同步宣发</div>
+      </div>
+    </li>
+    <li>
+      <div class="mech-num">5</div>
+      <div>
+        <div class="mech-title">属地支撑与落地保障机制</div>
+        <div class="mech-desc">属地资源协同，合规标准输出，统一项目执行规范</div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="sub-title">（一）联合资金池机制</div>
+
+  <div class="stat-highlight">
+    <div class="big-num">3亿</div>
+    <div class="big-desc">首期联合项目资金池<small>5家核心成员单位 × 6,000万元</small></div>
+  </div>
+
+  <p class="body-text">联盟设立联合项目资金池，首期规模<span class="b">3亿元</span>，由5家核心成员单位各出资6000万元构成，专项用于联盟联合主办的大型演出项目投资。央视娱乐传媒作为发起方，同样以核心成员单位身份参与资金池出资，出资额度与其他成员保持一致，以实质性投入彰显长期承诺，与各成员单位<span class="kw">风险共担、利益共享</span>。</p>
+
+  <!-- 资金池流转图 -->
+  <div class="fund-flow">
+    <div class="flow-title">资金池运转机制</div>
+    <div class="flow-row">
+      <div class="flow-box">5家各出资<br>6,000万元</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box gold">联合资金池<br>3亿元</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box green">项目投资</div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-box green">项目利润分红</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">按出资比例<br>分配收益</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box gold">本金回流<br>资金池</div>
+    </div>
+    <div class="flow-loop">投资 → 运营 → 回款 → 再投 &nbsp;良性循环</div>
+  </div>
+
+  <p class="body-text"><span class="kw">资金属性：</span>各成员单位出资为联盟联合项目投资预备金，滚动使用，不属于一次性消耗性支出，仅用于经审议通过的联合演出项目投资。</p>
+  <p class="body-text"><span class="kw">资金监管：</span>资金池委托第三方实施监管，严格执行专款专用要求，资金流向全程留痕、可追溯。所有资金支出须经核验审议授权后方可拨付，确保资金使用安全、合规、透明。</p>
+  <p class="body-text"><span class="kw">规范投资收益：</span>联合项目严格遵循同股同权、风险共担、收益共享原则。项目完成结算实现利润后，按各成员单位实际出资比例进行分红；项目本金同步回流资金池，形成"投资—运营—回款—再投"的良性循环。</p>
+  <p class="body-text"><span class="kw">灵活增资机制：</span>开辟优质项目快速审批通道，简化内部决策层级，抢抓市场窗口期。针对重大优质项目，可启动临时追加投资程序，由各成员单位自愿参与、同股同权，追加资金须于规定工作日内到账，保障项目高效推进。</p>
+
+  <div class="sub-title">（二）艺人资源共享机制</div>
+  <p class="body-text">整合各成员单位艺人合作资源，建立<span class="kw">联盟统一艺人资源库</span>，夯实线下演出核心竞争力。</p>
+  <p class="body-text"><span class="kw">1、推进资源共建。</span>各成员单位将自有深度合作的艺人资源视情况纳入联盟共享体系，形成覆盖多层级、全风格的艺人储备矩阵。</p>
+  <p class="body-text"><span class="kw">2、开展联合议价。</span>以联盟整体规模开展艺人合作集中采购，提升行业话语权，系统性压降艺人采购成本，避免内部竞价内耗。</p>
+  <p class="body-text"><span class="kw">3、保障优先调用。</span>联盟联合项目享有库内艺人资源的优先合作权，合作费用按市场化原则统一结算。</p>
+  <p class="body-text"><span class="kw">4、实施长效维护。</span>共同承担头部艺人的长期关系维护成本，分散单一机构的运营压力与资源投入风险。</p>
+
+  <div class="sub-title">（三）品牌商务协同机制</div>
+  <p class="body-text">整合各成员单位商务合作资源，构建联合招商与品牌共创体系，放大商务合作价值：</p>
+  <p class="body-text"><span class="kw">资源跨域复用。</span>汇聚各成员单位的政府文旅、商业品牌客户资源，建立联盟共享商务资源库，推动客户资源跨区域、跨平台复用。</p>
+  <p class="body-text"><span class="kw">规模联合招商。</span>依托联盟整体品牌影响力与全域覆盖能力，面向地方政府、文旅集团、商业品牌开展联合招商，拓展合作广度与深度。</p>
+  <p class="body-text"><span class="kw">IP共创增值。</span>支持成员单位自有演出IP跨域落地、联名开发，实现品牌价值叠加与IP资产增值。</p>
+
+  <div class="sub-title">（四）内容创制与全域传播机制</div>
+  <p class="body-text">发挥广电系统内容生产与媒体传播优势，构建<span class="kw">"联合创制+全域传播"</span>一体化协同体系。</p>
+  <p class="body-text"><span class="kw">1、全链路内容共创。</span>联盟重点项目实行联合创制机制，各成员单位发挥地域资源、受众洞察、内容专长等差异化优势，共同参与IP策划、舞台设计、衍生内容制作等全链路环节，合力打造精品内容。</p>
+  <p class="body-text"><span class="kw">2、跨区域全域传播。</span>联动多省广电平台同步宣发，打通大屏频道、新媒体矩阵、属地渠道等多层级传播端口，实现全国核心区域全覆盖，延展项目传播周期与声量。</p>
+
+  <div class="sub-title">（五）属地支撑与落地保障机制</div>
+  <p class="body-text">发挥各成员单位属地优势，为项目落地提供全链条支撑，统一行业运营标准。</p>
+  <p class="body-text"><span class="kw">属地资源协同。</span>统筹属地场地协调、审批保障、安保交通配套等能力，降低跨区域项目落地难度，确保项目安全有序运行。</p>
+  <p class="body-text"><span class="kw">合规标准输出。</span>输出广电系统规范化运营体系与品质管控标准，统一项目执行规范，纠治行业无序竞争、履约失范等乱象。</p>
+</div>
+
+<!-- ==================================================================
+     PART 05  核心业务布局
+     ================================================================== -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">PART 05</span>
+    <span class="sec-title">核心业务布局</span>
+  </div>
+
+  <div class="biz-list">
+    <div class="biz-card">
+      <div class="biz-tag">核心主业</div>
+      <div class="biz-title">联合出品大型线下演出</div>
+      <p class="body-text">聚焦音乐节、个人演唱会、拼盘演唱会等核心品类，联合投资、共同出品优质演出项目，筑牢联盟发展基本盘。依托规模优势，对艺人采购、场地租赁、制作搭建等核心成本项实行集约化压降；依托各成员单位属地资源，保障项目审批、安保、配套等环节安全落地；依托快速决策机制，抢抓市场窗口期，提升项目运作效率与市场竞争力。</p>
+    </div>
+    <div class="biz-card">
+      <div class="biz-tag">增值业务</div>
+      <div class="biz-title">全链路演出版权运营</div>
+      <p class="body-text">版权运营为联盟同步启动的增值业务，随首批联合项目同步落地，包括联合出品项目的视听版权、IP形象版权及衍生开发权等，由参与投资的成员单位按出资比例共同享有，统一归口管理、对外授权。充分拓展内容二次收益，放大IP长尾价值，同时版权内容可反向赋能各成员单位自有播出渠道，实现内容资产沉淀与渠道价值提升双向促进。</p>
+    </div>
+    <div class="biz-card">
+      <div class="biz-tag">配套业务</div>
+      <div class="biz-title">搭建票务协同体系</div>
+      <p class="body-text">票务体系建设是联盟抢占渠道主动权、完善产业闭环的战略布局，遵循<span class="kw">"先筑基、后自主，分步推进、逐步迭代"</span>的路径实施。当期与头部票务平台开展总对总战略合作，以规模体量争取更优佣金费率、结算周期与流量支持，同步打通各成员单位自有渠道构建内部分销网络，在降本提效的同时积累票务运营经验、沉淀用户数据、打磨服务体系，为自主平台搭建筑牢根基。核心将打造<span class="kw">广电系自主票务平台</span>，全面抢占线下演出票务市场份额，构建集票务销售、用户运营、数据赋能于一体的独立票务生态，逐步掌握票务渠道自主权与用户资产所有权，形成联盟新的营收增长极，从根本上降低对第三方平台的依赖。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================================================================
+     PART 06  联盟核心价值
+     ================================================================== -->
+<div class="sec sec-alt">
+  <div class="sec-head">
+    <span class="sec-num">PART 06</span>
+    <span class="sec-title">联盟核心价值</span>
+  </div>
+
+  <div class="value-list">
+    <div class="value-card">
+      <div class="v-icon">🏢</div>
+      <h4>对成员单位</h4>
+      <ul>
+        <li><strong>补短板、降风险</strong> — 快速获取成熟演出运营经验与行业资源，大幅降低独立拓展试错成本；联合投资、风险共担</li>
+        <li><strong>破瓶颈、提能力</strong> — 共享资金、艺人、品牌、传播、属地五大核心资源，突破资源天花板</li>
+        <li><strong>拓增量、促转型</strong> — 开辟线下To C新增长曲线，获取版权、票务等产业链延伸收益</li>
+      </ul>
+    </div>
+    <div class="value-card">
+      <div class="v-icon">🏛</div>
+      <h4>对行业发展</h4>
+      <ul>
+        <li><strong>树立品质标杆</strong> — 以国家级媒体标准引领行业从"流量驱动"向"品质驱动"升级</li>
+        <li><strong>净化行业生态</strong> — 推动良性成本结构与透明合作规则，纠治无序竞争</li>
+        <li><strong>打造"行业国家队"</strong> — 填补线下演出领域国有主力军空白，构建行业压舱石</li>
+      </ul>
+    </div>
+    <div class="value-card">
+      <div class="v-icon">📈</div>
+      <h4>对市场与产业</h4>
+      <ul>
+        <li><strong>提振市场信心</strong> — 广电系统集体入场，注入确定性高品质供给与长期价值预期</li>
+        <li><strong>激活文旅消费</strong> — 以高品质演出项目带动城市文旅消费，服务地方经济发展</li>
+        <li><strong>丰富文化供给</strong> — 为群众提供更多高品质、规范化的线下文化消费选择</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ==================================================================
+     PART 07  实施推进步骤
+     ================================================================== -->
+<div class="sec">
+  <div class="sec-head">
+    <span class="sec-num">PART 07</span>
+    <span class="sec-title">实施推进步骤</span>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="phase">PHASE 1</div>
+      <div class="phase-title">筹备发起 — 2026年三季度</div>
+      <div class="phase-body">
+        完成联盟章程、核心管理细则起草与论证；对接首批5家核心成员单位达成共识，完成首期资金池认缴确认；邀请中国演出行业协会作为指导单位，对接首批生态合作伙伴；完成理事会、秘书处及各专项工作组组建。
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="phase">PHASE 2</div>
+      <div class="phase-title">正式成立 — 2026年四季度</div>
+      <div class="phase-body">
+        召开联盟成立大会，正式揭牌并发布联盟章程与发展规划；发布首批联合出品演出项目计划；正式上线资金池、艺人池、品牌池运行体系，同步启动版权运营专项端口与票务集采对接。
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="phase">PHASE 3</div>
+      <div class="phase-title">深耕运营 — 2027年起</div>
+      <div class="phase-body">
+        落地首批联合项目，跑通"投资—制作—票务—版权"全链路协同模式；持续吸纳优质成员与生态伙伴，扩大联盟规模与行业影响力；推动版权运营实现持续收益回流，票务协同体系全面运转。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================================================================
+     结语 + CTA
+     ================================================================== -->
+<div class="closing-section">
+  <div class="closing-tag">▎ 结 语</div>
+  <p class="body-text">当下，中国演出行业正经历从野蛮生长到品质为王的深刻转型，全国广电系统也正处于媒体深度融合的战略重构期。中国广电演出产业联盟的成立，既是对行业痛点的主动回应，也是对时代机遇的精准把握，更是广电系统践行文化使命、引领行业发展的责任担当。</p>
+  <p class="body-text">联盟致力于打造演出行业首个广电系系统性协同平台，为各成员单位以较低边际成本切入线下演艺赛道、实现产业转型提供可行路径。联盟的核心竞争力，在于<span class="kw">"共同体协同、全链路共创、生态化共赢"</span>的机制设计——资金共投、成本共压、风险共担、收益共享，覆盖从演出投资、内容共创、艺人共享到版权运营的完整产业闭环。</p>
+  <p class="body-text">央视娱乐传媒愿以多年积累的运营经验、资源体系与品质标准，携手全国广电同仁，共建务实、高效、可持续的产业协同平台，推动广电系统在演出产业领域从先行探索走向合力共建，从单点突破迈向生态共赢，共创媒体深度融合新路径，共筑线下演出产业新格局。</p>
+
+  <div class="cta-btn">聚势合力 共创未来</div>
+</div>
+
+<!-- ==================================================================
+     落款
+     ================================================================== -->
+<div class="footer">
+  <strong style="color:var(--text-dim);">央视（北京）娱乐传媒有限公司</strong><br>
+  2026年7月
+</div>
+
+</div><!-- .container -->
+
+</body>
+</html>
